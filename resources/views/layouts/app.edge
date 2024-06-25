@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ env('APP_NAME') }}</title>
+
+
+  @entryPointStyles('app')
+  @entryPointScripts('app')
+  @!section('headIncludes')
+</head>
+
+<body class="font-sans text-gray-400 bg-gray-100">
+  @if (flashMessages.has('notification'))
+  <div x-data="{
+        visible: true,
+        init() {
+          setTimeout(() => {
+            this.visible = false
+          }, 5000)
+        },
+      }" x-show="visible" x-transition:leave="transition ease duration-200"
+    x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="transform scale-90 opacity-0">
+    @if(flashMessages.get('notification.type') === 'success')
+    <div class="p-4 text-sm font-medium text-center text-green-800 bg-green-100">
+      {{ flashMessages.get('notification.message') }}
+    </div>
+    @elseif(flashMessages.get('notification.type') === 'error')
+    <div class="p-4 text-sm font-medium text-center text-red-800 bg-red-100">
+      {{ flashMessages.get('notification.message') }}
+    </div>
+    @elseif(flashMessages.get('notification.type') === 'info')
+    <div class="p-4 text-sm font-medium text-center text-blue-800 bg-blue-100">
+      {{ flashMessages.get('notification.message') }}
+    </div>
+    @endif
+  </div>
+  @endif
+
+  <div>
+    
+      
+    <header class="absolute inset-x-0 top-0 z-50">
+      @include('partials/topNav')
+    </header>
+      @!section('content')
+      @include('partials/footer')
+  </div>
+  @if(env('NODE_ENV') === 'development')
+  {{-- @!component('partials/components/utility/breakpointTester') --}}
+  @end    
+</body>
+
+</html>

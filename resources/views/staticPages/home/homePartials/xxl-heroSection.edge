@@ -1,0 +1,35 @@
+<section class="bg-white dark:bg-gray-900 isolate" style="
+        background-image: url('{{asset('assets/images/branding/fuji-tokyo-nights.svg')}}');
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-attachment: scroll;
+        background-size: 100%;
+        background-blend-mode: multiply;
+      ">
+    <div class="grid max-w-screen-xl h-screen px-4 mx-auto lg:grid-cols-12">
+        <div class="mr-auto place-self-center lg:col-span-6 xxl:col-span-7">
+            <h1
+                class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+                I'm Tim IRL and this is me on the net. </h1>
+            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                I made this website using advanced technologies. <strong>All of them.</strong> <br> <br> One man's
+                playground is another man's zoo. Observe responsibly.
+            </p>
+            
+            {{-- @!component('partials/components/emailCollectionForm', {
+            name: 'heroEmail',
+            text: 'Put the email in the box',
+            placeholder: 'If you can read this, you are doing it wrong',
+            action: '#',
+            method: 'POST',
+            buttonText: 'CLICK THIS'
+            }) --}}
+        </div>
+        <div x-data="{imgHeight: Math.floor($el.getBoundingClientRect().height)}" x-init=""
+            class="hidden h-full place-self-center lg:mt-12 lg:col-span-6 xxl:col-span-5 lg:flex">
+            <img class="h-full object-bottom object-contain"
+                src="{{asset('assets/images/branding/skullphones/dove-skull-2.svg')}}"
+                alt="actual image of tim entering the net. colorized.">
+        </div>
+    </div>
+</section>

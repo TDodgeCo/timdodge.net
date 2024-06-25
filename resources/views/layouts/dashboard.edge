@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="dark h-full bg-gray-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ env('APP_NAME') }}</title>
+
+  @!section('headIncludes')
+  @entryPointStyles('app')
+  @entryPointScripts('admin')
+</head>
+
+<body class="h-full">
+  @if (flashMessages.has('notification'))
+  <div x-data="{
+        visible: true,
+        init() {
+          setTimeout(() => {
+            this.visible = false
+          }, 5000)
+        },
+      }" x-show="visible" x-transition:leave="transition ease duration-200"
+    x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="transform scale-90 opacity-0">
+    @if(flashMessages.get('notification.type') === 'success')
+    <div class="bg-green-100 p-4 text-sm text-center font-medium text-green-800">
+      {{ flashMessages.get('notification.message') }}
+    </div>
+    @elseif(flashMessages.get('notification.type') === 'error')
+    <div class="bg-red-100 p-4 text-sm text-center font-medium text-red-800">
+      {{ flashMessages.get('notification.message') }}
+    </div>
+    @elseif(flashMessages.get('notification.type') === 'info')
+    <div class="bg-blue-100 p-4 text-sm text-center font-medium text-blue-800">
+      {{ flashMessages.get('notification.message') }}
+    </div>
+    @endif
+  </div>
+  @endif
+
+  
+  <div class="min-h-full">
+  @include('dashboard/partials/dashNav')
+      @!section('content')
+  </div>
+
+  @!section('footer-includes')
+</body>
+
+</html>

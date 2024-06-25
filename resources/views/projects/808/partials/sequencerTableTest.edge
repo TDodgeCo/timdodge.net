@@ -1,0 +1,117 @@
+
+    
+    <div class="flow-root">
+      <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+          <div class="overflow-hidden">
+            <table class="min-w-full border-separate border-black divide-x-2 divide-y-8 divide-black table-fixed">
+              <thead class="border-black border-1">
+                <tr id="sequencerHeadRow" class="text-center bg-transparent border-black border-y-2">
+                  {{-- <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900 invisible"></th> --}}
+                  {{-- <div id="sequencerHeadRowDiv" class="border-2 border-black">
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900 invisible"></th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900"><span class="invisible">0</span>1</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900"><span class="invisible">0</span>2</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900"><span class="invisible">0</span>3</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900"><span class="invisible">0</span>4</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900"><span class="invisible">0</span>5</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900"><span class="invisible">0</span>6</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900"><span class="invisible">0</span>7</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900"><span class="invisible">0</span>8</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900"><span class="invisible">0</span>9</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900">10</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900">11</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900">12</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900">13</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900">14</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900">15</th>
+                      <th scope="col" class="mx-2 px-3 py-3.5 text-xl font-bold text-gray-900">16</th>
+                    </div> --}}
+                </tr>
+              </thead>
+              <tbody id="sequencerBodyRow"class="bg-white divide-y divide-gray-200">
+                {{-- <tr id="trKick">
+                  <td class="px-3 py-3.5 text-2xl font-bold text-right text-gray-900 whitespace-nowrap">KICK</td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                </tr>
+                <tr id="trSnare">
+                  <td class="px-3 py-3.5 text-2xl font-bold text-right text-gray-900 whitespace-nowrap">SNARE</td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                </tr>
+                <tr id="trOpenHat">
+                  <td class="px-3 py-3.5 text-2xl font-bold text-right text-gray-900 whitespace-nowrap">OPEN HAT</td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                </tr>
+                <tr id="trClosedHat">
+                  <td class="px-3 py-3.5 text-2xl font-bold text-right text-gray-900 whitespace-nowrap">CLOSED HAT</td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                  <td class="px-3 py-3.5 text-sm font-medium text-gray-900 border-2 border-black whitespace-nowrap"></td>
+                </tr> --}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+  

@@ -1,0 +1,46 @@
+<aside class="fixed right-3 top-0 mt-24">
+    <p class="max-w-2xl font-light text-sm text-gray-500 xl:text-xl dark:text-gray-400">
+    <div x-data="{
+            sh: screen.height, 
+            sw: screen.width, 
+            wh: window.innerHeight, 
+            ww: window.innerWidth,
+            aw: screen.availWidth,
+            dimsOpen: false,
+            breaksOpen: false,
+            isMaximized: ''
+        }" x-init="isMaximized = aw - ww === 0">
+        {{--  <div class="relative z-0">
+            <input type="text" id="floating_standard"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" " />
+            <label for="floating_standard"
+                class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Floating
+                standard</label>
+        </div>  --}}
+        <ul>
+            <li>BREAKPOINTS</li>
+            <li class="hidden md:block"> > 768px</li>
+            <li class="hidden lg:block "> > 1024px</li>
+            <li class="hidden xl:block "> > 1280px</li>
+            <li class="hidden 2xl:block "> > 1536px</li>
+            <li>Maximized: <span class="text-right"><span x-text="isMaximized"></span></li>
+            <li>Window: <span class="text-right"><span x-text="ww"></span> x <span x-text="wh"></span></span></li>
+            
+        </ul>
+        <script type="text/javascript">
+            function gcd (a, b) {
+            return (b == 0) ? a : gcd (b, a%b);
+        }
+        var w = screen.width;
+        var h = screen.height;
+        var r = gcd (w, h);
+        document.write ("<pre>");
+        document.write ("Dimensions = ", w, " x ", h, "<br>");
+        document.write ("Gcd        = ", r, "<br>");
+        document.write ("Aspect     = ", w/r, ":", h/r);
+        document.write ("</pre>");
+        </script>
+    </div>
+    </p>
+</aside>

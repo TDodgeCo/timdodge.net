@@ -1,0 +1,42 @@
+
+<section class="max-w-screen-lg px-4 py-4 mx-auto mt-8 bg-white rounded-md lg:px-8 sm:py-4 lg:py-8 lg:mt-16">
+    <div class="flex flex-wrap items-center justify-between max-w-screen-xl pb-4 mx-auto">
+      
+        <h3 class="flex items-center mb-4 space-x-3 text-5xl text-black font-semi-bold rtl:space-x-reverse">Audio Context</h3>
+        <p class="text-lg text-gray-700">Fair warning - a good deal of the content on this page and any related sub pages will only work on the latest versions of Chromium based browsers (Chrome/Edge/Brave/Opera/etc..) and the native Samsung/Android browsers.</p>
+        <div class="w-full md:block md:w-auto">
+          <p class="mt-8 text-lg text-gray-600 lg:mt-16">
+            What can be done with the audio context api? <br>
+
+            Seems like quite a bit. Based off cursory research, developing a rudimentary but altogether functional browser based DAW, accompanying visualizations, and most interestingly, streaming the outputs of the application to an endpoint of your choosing seems like a pretty realistic proposition given enough time and resources. The tools certainly appear to be there.
+          </p>
+          <p class="mt-8 text-lg text-gray-600 lg:mt-16">
+            My goals are pretty simple at this time. <br>
+
+            I'd like to build a simple synthesizer that compliment the web based sequencer I've been working on. I'd also like to familiarize myself with the out-of-the-box audio effects that come with the API - reverb, distortion, delay, and filter. If I find all of this to be utterly fascinating, I may try to build a very simple midi controller with the stockpile of Arduino parts and modules I have that are just collecting dust.
+          </p>
+        <p class="mt-8 text-lg text-gray-600 lg:mt-16">
+          Oscillator <br>
+          <code>const oscillator = AudioContext.createOscillator()</code> <br>
+          <code>oscillator.frequency.value = 60</code> <br>
+          <code>oscillator.type = 'sine'</code>
+        </p>
+        <p class="mt-8 text-lg text-gray-600 lg:mt-16">
+          Filter <br>
+          <code>const filter = AudioContext.createBiquadFilter()</code> <br>
+          <code>filter.type = 'lowpass'</code> <br>
+          <code>oscillator.frequency.value = 300</code>
+        </p>
+        <p class="mt-8 text-lg text-gray-600 lg:mt-16">
+          LFO <br>
+          <code>lfo.connect(modulationGain)</code> <br>
+          <code>modulationGain.connect(_gainNode.gain)</code> <br>
+          <code>_oscillator.connect(_filter)</code> <br>
+          <code>_filter.connect(_gainNode)</code> <br>
+          <code>_masterGain.connect(context.destination)</code>
+        </p>
+        </div>
+      </div>
+
+    
+</section>

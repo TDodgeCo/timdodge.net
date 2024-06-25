@@ -1,0 +1,561 @@
+@layout('layouts/app')
+
+@section('headIncludes')
+@entryPointScripts('js808Test')
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
+@end
+
+@section('content')
+  
+<section class="antialiased bg-white dark:bg-gray-900">
+  <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
+    <div class="max-w-2xl mx-auto space-y-4 text-center">
+      <h2 class="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+        {{data.title}}
+      </h2>
+      <p class="text-base font-normal text-gray-500 sm:text-xl dark:text-gray-400">
+        {{data.subtitle}}
+      </p>
+
+      <div class="flex items-center justify-center gap-6 mt-4">
+        <a href="#" title=""
+          class="inline-flex items-center text-base font-medium shrink-0 text-primary-600 hover:underline dark:text-primary-500">
+          <svg aria-hidden="true" class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+            fill="currentColor">
+            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+            <path fill-rule="evenodd"
+              d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+              clip-rule="evenodd" />
+          </svg>
+          View all 
+        </a>
+
+        <a href="#" title=""
+          class="inline-flex items-center text-base font-medium shrink-0 text-primary-600 hover:underline dark:text-primary-500">
+          Contact me
+          <svg aria-hidden="true" class="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+            fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    @include('projects/808/partials/js808.edge')
+
+    <div class="max-w-5xl mx-auto mt-8 space-y-16 sm:mt-12 lg:mt-16">
+      <div class="space-y-8 lg:space-y-12">
+        {{-- <img class="object-cover object-top w-full h-auto rounded-lg shadow-lg dark:hidden"
+          src="{{asset(`assets/images/projects/js-808/sequence-diagram.png`)}}" alt="">
+        <img class="hidden object-cover object-top w-full h-auto rounded-lg shadow-lg dark:block"
+          src="{{asset(`assets/images/projects/js-808/sequence-diagram.png`)}}" alt=""> --}}
+        
+        <img class="object-cover object-top w-full h-auto rounded-lg shadow-lg dark:hidden"
+          src="{{asset(`assets/images/projects/js-808/tr-808.jpg`)}}" alt="">
+        <img class="hidden object-cover object-top w-full h-auto rounded-lg shadow-lg dark:block"
+          src="{{asset(`assets/images/projects/js-808/tr-808.jpg`)}}" alt="">
+
+        <div class="space-y-6">
+          <div class="space-y-4">
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+              Challenges I faced during this project: State Management, JS Interval/Timeout Quirks --- window.setX vs just setX, iteration, unnamed setInterval functions are bad. Returning inside a setInterval function does not end the interval sequence. You have to call clearInterval(). This one tripped me up for a good hour. - ultimately decided to just go with interval based iteration vs a more traditional loop.
+            </p>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+              Items to refactor before submitting: Allow the user to adjust the tempo of a pattern. Dynamically generate the array of steps based on the steps input. Should also help with the weird state based issues I was having when switching between patterns. Allow for users to click on a node and add it to the sequence. 
+            </p>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+              Refactor Notes: I originally built this with a hard coded table that was constrained to having 16 steps. I wanted to refactor this to be more dynamic and allow for the user to set the number of steps in a pattern. By dynamically generating the array of steps, I have much more flexibility in terms of features I can add to the drum machine. For instance, I want to give the user the ability to add or remove instruments, which would have been a bit of a nightmare to accomplish with the hard coded table. I also wanted to let the user control which sequence cells were active, and dynamically rendering the rows/cells allows for a much cleaner approach to that.
+            </p>
+            <h3 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl dark:text-white">
+                JS-808 Practice Exercise
+            </h3>
+            @!component('partials/components/link', {href: 'https://github.com/splice/js-808', title: `Splice's JS-808 UI Challenge`, linkText: `https://github.com/splice/js-808`, targetBlank: true})
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                The goal of this exercise is to practice designing models and interfaces, and to get a feel for how you architect front-end code. 
+            </p>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                There aren't good or bad solutions; rather, there are solutions that match the requirements and some that don't. There are solutions that might be considered elegant by some by some and solutions that would be considered clever. 
+            </p>
+            <h4 class="text-3xl font-bold leading-tight text-gray-900 sm:text-3xl dark:text-white">
+                Time Expectations
+            </h4>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                We ask that you set aside about 90 minutes to complete the exercise. It's ok to go over if you're having fun (drum kits are very fun), but we respect your time. Don't worry if after 90 minutes the exercise is incomplete, share your code and tell us how you would finish it in the form of comments, diagrams, long ramblings with links to things you're thinking about, or anything that will help us understand how you would troubleshoot your way through a task.
+            </p>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                Our engineering team cares about having a good work/life balance. Some of our team have done this exercise recently as part of the hiring process. We empathize with any stress you might be under when looking for a career change. Do your best, let your self come through in your work, and try not to stress out.
+            </p>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                Please feel free to use AI and coding assistants to complete this assignment, but make sure you thoroughly understand the code you are submitting. The most important part of this assignment is going to be talking through what you did and why you did it.
+            </p>
+            <h4 class="text-3xl font-bold leading-tight text-gray-900 sm:text-3xl dark:text-white">
+                The Exercise: Building a (Soundless) Drum Machine
+            </h4>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                This exercise assumes you are somewhat familiar with drum machines. If you aren't please read 
+                @!component('partials/components/link', {href: 'http://en.wikipedia.org/wiki/Drum_machine', title: `Wikipedia article on drum machines`, linkText: `http://en.wikipedia.org/wiki/Drum_machine`, targetBlank: true})
+            </p>
+                
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                Your challenge is to code the sequencer part of our Drum Machine, which we called JS-808. Your sequencer should be able to support the famous 
+                @!component('partials/components/link', {href: 'http://en.wikipedia.org/wiki/Four_on_the_floor_(music)', title: `Wikipedia article on the four on the floor drum pattern`, linkText: `four on the floor`, targetBlank: true})
+                , but be flexible enough to let a user edit the pattern to fit their musical whims.
+            </p>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                You can build your app to look like this wireframe. If you're someone who loves css and beautifying the UI, show us that. Approach this task as your way of displaying your favorite parts of frontend development.
+            </p>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                <b>READ THIS IT IS REALLY IMPORTANT:</b> <br>
+                This drumkit does <b>NOT NEED TO PLAY SOUND.</b> Instead we want to see a real time VISUAL representation of the sequence being played.
+            </p>
+            <h5 class="text-2xl font-bold leading-tight text-gray-900 sm:text-2xl dark:text-white">
+                REQUIRED FEATURES
+            </h5>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                Your drum machine should include the following features:
+            </p>
+            <ul class="pl-8 space-y-2 list-disc">
+                <li>Play & stop controls.</li>
+                <li>The ability for the user to alter the tempo of the sequence. This tempo change can occur while the song is stopped or playing – whatever makes the most sense for your code structure.</li>
+                <li>Playback readout - there should be a visual indication of the active step while the sequence is playing. Ideally, the playback speed will also match the sequence tempo.</li>
+                <li>There should be 3 premade drum pattern sequences that can be loaded into your drumkit. The UI element is up to you; in the wireframe it is the dropdown.</li>
+                <li>The pattern is expected to be 8 steps or more. eg- if you look at that wireframe, there are 16 columns.</li>
+                <li>The time signature is expected to be 4/4 (if you don't know what that is, don't worry and ignore this instruction).</li>
+                </li>
+            </ul>
+            <h5 class="text-2xl font-bold leading-tight text-gray-900 sm:text-2xl dark:text-white">
+                Useful Timing Info
+            </h5>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                At a 4/4 time signature of 60 BPM (beats per minute), we get 1 beat per second. We can assume that 8 steps = 1 bar, representing 4 beats. In other words, a 8 step pattern would take <code class="px-1.5 py-1 text-gray-100 text-sm rounded-sm bg-slate-600">(60/BPM)*4</code> seconds to play and each step would take <code class="px-1.5 py-1 text-gray-100 text-sm rounded-sm bg-slate-600">((60/BPM)*4)/STEPS</code> seconds.
+            </p>
+            <h5 class="text-2xl font-bold leading-tight text-gray-900 sm:text-2xl dark:text-white">
+                Extra Mile
+            </h5>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                If you have done all the required features and want to keep going because you just made a cool drumkit, try doing the following:
+            </p>
+            <ul class="pl-8 space-y-2 list-disc">
+                <li>Output sound - you might want to look at some higher-level libraries that allow you to load and play sounds rather than getting mired in the details of managing and playing the sounds directly (though you're certainly welcome to do that too).</li>
+                <li>Try mix and matching patterns of different durations (8, 16, 32 steps), note that if you have 2 patterns, one 8 and one 16, the 8 should play twice while the 16 plays once.</li>
+                <li>Add support for velocity (the amplitude/volume of a note).</li>
+                <li>You don't have to limit yourself to the features/layout/parts on the diagram. Take inspiration from existing drum machines and feel free to get creative!</li>
+            </ul>
+            <h5 class="text-2xl font-bold leading-tight text-gray-900 sm:text-2xl dark:text-white">
+                What can I use & are we looking for?
+            </h5>
+            <ul class="pl-8 space-y-2 list-disc">
+                <li>Use the tools you are comfortable with! You can use any framework. You can use plugins & libraries. You can write this entirely in vanilla JS. Want to use canvas? Go for it.</li>
+                <li>Please include a readme. If we need to run the code locally to see it work, please give us instructions.</li>
+                <li>Please use this exercise as a way to show us what you like about Frontend Development. Some people live for performance, others for a11y, or great UX or writing tests. We are aware of the time constraint, if what you love takes time, put comments in.</li>
+            </ul>
+            <h5 class="text-2xl font-bold leading-tight text-gray-900 sm:text-2xl dark:text-white">
+                Splice Evaluation
+            </h5>
+            <ul class="pl-8 space-y-2 list-disc">
+                <li>How much time did you spend on the exercise, what parts took longer?</li>
+                <li>What were the hard parts, what parts did you enjoy most?</li>
+                <li>Data modeling - How did you model the concepts of songs and tracks/patterns, can you explain why?</li>
+                <li>Simplicity vs Flexibility - How flexible is your solution? Can a user define patterns of different lengths? Can they play at the same time? Can the patterns be changed in real time? Can the velocity be set? None of these features are expected, what is needed for you to add support for these?</li>
+                <li>Is your code tested? Why/why not? How would you test it (or test it better)?</li>
+            </ul>
+            <h5 class="text-2xl font-bold leading-tight text-gray-900 sm:text-2xl dark:text-white">
+                Submitting Your Solution
+            </h5>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+                Zip up your solution, including the git history, and submit it via the Greenhouse link that should have been provided to you by your recruiter. It is also acceptable to submit it as an email attachment to the recruiter. We do not accept submissions any other way.
+            </p>
+          </div>
+
+          {{--  <div class="flex items-center gap-2.5">
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-html5" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/html5.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-html5" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              HTML5
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-css3" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/css-3.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-css3" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              CSS3
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-javascript" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/javascript.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-javascript" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              JavaScript
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-tailwind-css" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/tailwind-css.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-tailwind-css" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Tailwind CSS
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-typescript" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/typescript.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-typescript" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              TypeScript
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+          </div>  --}}
+
+          <a href="#" title=""
+            class="text-white inline-flex items-center bg-primary-700  hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            role="button">
+            Read the article
+            <svg aria-hidden="true" class="w-5 h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {{--  @if(articles)
+    <div class="max-w-5xl mx-auto mt-8 space-y-16 sm:mt-12 lg:mt-16">
+      <div class="space-y-8 lg:space-y-12">
+        <img class="object-cover object-top w-full h-auto rounded-lg shadow-lg dark:hidden"
+          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/dashboard.png" alt="">
+        <img class="hidden object-cover object-top w-full h-auto rounded-lg shadow-lg dark:block"
+          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/dashboard-dark.png" alt="">
+
+        <div class="space-y-6">
+          <div class="space-y-4">
+            <h3 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl dark:text-white">
+              Creating Flowbite's dashboard
+            </h3>
+            <a href="#" title=""
+              class="inline-flex items-center text-lg font-medium text-primary-600 hover:underline dark:text-primary-500">
+              See the live website
+              <svg aria-hidden="true" class="w-5 h-5 ml-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path
+                  d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+              </svg>
+            </a>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+              The first step in creating a dashboard is to determine who will be using it and what their needs are. Are
+              you creating a
+              dashboard for your team to track progress on a project, or for executives to monitor key performance
+              indicators (KPIs)
+              for the company? What specific data points do they need to see in order to make decisions? Understanding
+              your audience
+              and their needs will help you determine what data to include on the dashboard.
+            </p>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+              Use charts, graphs, and other visual elements to help users quickly understand the data, making sure to
+              label all
+              elements clearly and provide context for the data being presented.
+            </p>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+              Test the dashboard with a few users before launching it to ensure that it is meeting their needs and is
+              easy
+              to use.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-html5" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/html5.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-html5" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              HTML5
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-css3" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/css-3.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-css3" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              CSS3
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-javascript" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/javascript.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-javascript" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              JavaScript
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-tailwind-css" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/tailwind-css.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-tailwind-css" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Tailwind CSS
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-typescript" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/typescript.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-typescript" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              TypeScript
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+          </div>
+
+          <a href="#" title=""
+            class="text-white inline-flex items-center bg-primary-700  hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            role="button">
+            View case study
+            <svg aria-hidden="true" class="w-5 h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="space-y-8 lg:space-y-12">
+          <img class="object-cover object-top w-full h-auto rounded-lg shadow-lg dark:hidden"
+          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/ngo-landing.jpg" alt="">
+          <img class="hidden object-cover object-top w-full h-auto rounded-lg shadow-lg dark:block"
+          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/ngo-landing-dark.jpg" alt="">
+
+        <div class="space-y-6">
+          <div class="space-y-4">
+            <h3 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl dark:text-white">
+              Flowbite's landing page
+            </h3>
+            <a href="#" title=""
+              class="inline-flex items-center text-lg font-medium text-primary-600 hover:underline dark:text-primary-500">
+              See the live website
+              <svg aria-hidden="true" class="w-5 h-5 ml-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path
+                  d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+              </svg>
+            </a>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+              What action do you want visitors to take after they arrive on the page? Are you trying to sell a product,
+              capture leads,
+              or promote an event? Once you know your goal, you can identify your target audience and create a message
+              that speaks
+              directly to their needs and interests.
+            </p>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+              Keep the design simple and focused on your goal, using clear headlines and calls-to-action to guide
+              visitors
+              towards the
+              desired action. Use high-quality images and graphics to make the page visually appealing and highlight the
+              benefits of
+              your offer. Make sure the page is mobile-friendly and loads quickly to provide a good user experience.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-wordpress" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/wordpress.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-wordpress" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              WordPress
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-html5" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/html5.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-html5" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              HTML5
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-css3" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/css-3.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-css3" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              CSS3
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-woocommerce" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/woocommerce.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-woocommerce" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              WooCommerce
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+          </div>
+
+          <a href="#" title=""
+            class="text-white inline-flex items-center bg-primary-700  hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            role="button">
+            View case study
+            <svg aria-hidden="true" class="w-5 h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="space-y-8 lg:space-y-12">
+          <img class="object-cover object-top w-full h-auto rounded-lg shadow-lg dark:hidden"
+          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/gallery.jpg" alt="">
+          <img class="hidden object-cover object-top w-full h-auto rounded-lg shadow-lg dark:block"
+          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/gallery-dark.jpg" alt="">
+
+        <div class="space-y-6">
+          <div class="space-y-4">
+            <h3 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl dark:text-white">
+              Innovative Gallery API
+            </h3>
+            <a href="#" title=""
+              class="inline-flex items-center text-lg font-medium text-primary-600 hover:underline dark:text-primary-500">
+              See the live website
+              <svg aria-hidden="true" class="w-5 h-5 ml-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path
+                  d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+              </svg>
+            </a>
+            <p class="text-base font-normal text-gray-500 sm:text-lg dark:text-gray-400">
+              Determine what kind of emails you will be managing, who will be using the system, and what features are
+              necessary,
+              considering features like search, filtering, categorization, and sorting, as well as security and privacy
+              requirements.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-typescript" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/typescript.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-typescript" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              TypeScript
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-java" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/java.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-java" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Java
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-tailwind-css" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/tailwind-css.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-tailwind-css" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Tailwind CSS
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-react" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/react.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-react" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              React
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-html5" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/html5.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-html5" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              HTML5
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <div class="p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <img data-tooltip-target="tooltip-logo-amazon-web-services" class="object-contain w-auto h-8"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/technologies/amazon-web-services.svg" alt="">
+            </div>
+            
+            <div id="tooltip-logo-amazon-web-services" role="tooltip"
+              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Amazon Web Services
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+          </div>
+
+          <a href="#" title=""
+            class="text-white inline-flex items-center bg-primary-700  hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            role="button">
+            View case study
+            <svg aria-hidden="true" class="w-5 h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    @endif  --}}
+  </div>
+</section>
+@endsection

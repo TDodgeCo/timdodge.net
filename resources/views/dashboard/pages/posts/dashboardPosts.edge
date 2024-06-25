@@ -1,0 +1,34 @@
+@layout('layouts/dashboard')
+
+@section('headIncludes')
+<script src="https://cdn.jsdelivr.net/npm/marked@2.1.3/marked.min.js"></script>
+@endsection
+
+@section('content')
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  ```
+-->
+
+<main class="-mt-32">
+    <div class="w-full px-4 pb-12 mx-auto sm:px-6 lg:px-8">
+        <div class="px-5 py-6 bg-white rounded-lg shadow sm:px-6">
+            <form action="{{ route('posts.store') }}" method="post">
+                {{ csrfField() }}
+                <div class="shadow-md sm:rounded-lg">
+                    @!component('dashboard/pages/posts/markdownEditor', {content})
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+@endsection
+
+@section('footer-includes')
+<script src="{{ asset('assets/scripts/textEditor.js') }}"></script>
+@endsection

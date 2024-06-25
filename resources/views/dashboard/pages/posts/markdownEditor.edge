@@ -1,0 +1,87 @@
+
+<div x-data="{ body: '', markdown: '', preview(){ this.markdown = window.marked(this.body) }, previewPost(){ activeTab = 'preview'; this.markdown = window.marked(this.body) } }"
+        class="w-full p-6">
+        <div x-data="{ activeTab: 'meta' }"
+            x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'meta'" class="w-full">
+            <nav>
+                <ul class="flex space-x-4">
+                    <li>
+                        <a @click="activeTab = 'meta'" :class="{ 'font-bold': activeTab === 'meta' }"
+                            class="px-4 py-2 font-bold text-white rounded bg-amber-500 hover:bg-amber-700" href="#">
+                            Meta
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a @click="activeTab = 'write'" :class="{ 'font-bold': activeTab === 'write' }"
+                            class="px-4 py-2 font-bold text-white rounded bg-amber-500 hover:bg-amber-700" href="#">
+                            Write
+                        </a>
+                    </li>
+
+                    <li>
+                        <a @click="activeTab = 'preview', preview" :class="{ 'font-bold': activeTab === 'preview' }"
+                            class="px-4 py-2 font-bold text-white rounded bg-amber-500 hover:bg-amber-700" href="#">
+                            Preview
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="w-full py-6">
+                <div x-show="activeTab === 'meta'" class="py-6">
+                    <div class="pb-2">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" class="w-full border rounded-md min-w-md border-amber-500" placeholder="Post Title - 100 characters or less">
+                    </div>
+                    <div class="pb-2">
+                        <label for="projectBlocksEntryScript">Related Project Entry Script</label>
+                        <input type="text" id="projectBlocksEntryScript" name="projectBlocksEntryScript" class="w-full border rounded-md min-w-md border-amber-500" placeholder="Post Title - 100 characters or less">
+                    </div>
+                    <div class="pb-2">
+                        <label for="projectBlocksPath">Related Project Path</label>
+                        <input type="text" id="projectBlocksPath" name="projectBlocksPath" class="w-full border rounded-md min-w-md border-amber-500" placeholder="Post Title - 100 characters or less">
+                    </div>
+                    <div class="pb-2">
+                        <label for="description">Description</label>
+                        <textarea type="text" id="description" name="description" class="w-full border rounded-md min-w-md border-amber-500 h-28" placeholder="Description"></textarea>
+                    </div>
+                    <div class="pb-2">
+                        <label for="topicId">Topic</label>
+                        <select id="topicId" name="topicId" class="w-full border rounded-md border-amber-500">
+                            <option value="" disabled selected>Select One</option>
+                            <option value="1">Code</option>
+                            <option value="2">Music</option>
+                            <option value="3">Video Games</option>
+                            <option value="4">Entrepreneurship</option>
+                        </select>
+                    </div>    
+                    <div class="pb-2">
+                        <label for="stateId">Visibility</label>
+                        <select id="stateId" name="stateId" class="w-full border rounded-md border-amber-500">
+                            <option value="" disabled selected>Select One</option>
+                            <option value="1">Draft</option>
+                            <option value="2">Unlisted</option>
+                            <option value="3">Private</option>
+                            <option value="4">Public</option>
+                            <option value="5">Archived</option>
+                        </select>
+                    </div>
+                    {{-- <div class="pb-2">
+                        <label for="tags">Tags</label>
+                        <input type="text" id="tags" name="tags" class="w-full border rounded-md min-w-md border-amber-500" placeholder="Tags - comma separated">
+                    </div>     --}}
+                </div>
+                <div x-show="activeTab === 'write'">
+                    <div>
+                        <textarea title="body" name="body" class="w-full px-2 py-1 border rounded-md min-w-md border-amber-500 h-96" x-model="body" x-on:input.change="preview">hello</textarea>
+                    </div>
+                </div>
+
+                <div x-show="activeTab === 'preview'" class="w-full">
+                    <div x-html="markdown" class="prose preview max-w-none prose-img:rounded-md">
+                    </div>
+                </div>
+                <button id="savePost" type="submit" class="px-5 py-3 text-white bg-primary-500 text-medium">Save</button>
+            </div>
+        </div>
+    </div>

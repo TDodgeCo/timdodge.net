@@ -1,0 +1,65 @@
+
+<section class="max-w-screen-lg px-4 py-4 mx-auto mt-8 bg-white rounded-md lg:px-8 sm:py-4 lg:py-8 lg:mt-16">
+    
+    {{-- <p><button id="getStateBtn" class="p-1 border-2 rounded-sm">Get State</button> | BPM: <span class="text-sm" id="currentBpm"></span> | Steps: <span class="text-sm" id="currentSteps"></span> | Sequence: <span class="text-sm" id="currentSequence"></span> | Active: <span class="text-sm" id="currentlyActive"></span></p> --}}
+    {{-- <p>
+      <button id="playKick" class="p-1 border-2 rounded-sm">Play Kick</button>
+      <button id="playSnare" class="p-1 border-2 rounded-sm">Play Snare</button>
+      <button id="playChh" class="p-1 border-2 rounded-sm">Play Closed HH</button>
+      <button id="playOhh" class="p-1 border-2 rounded-sm">Play Open HH</button>
+    </p> --}}
+    <div class="flex flex-wrap items-center justify-between max-w-screen-xl pb-4 mx-auto">
+      
+        <h3 class="flex items-center space-x-3 text-5xl text-black font-semi-bold rtl:space-x-reverse">JS-808</h3>
+        <div class="w-full md:block md:w-auto">
+        <form id="controlsForm">
+          <ul class="flex flex-col items-center p-4 mt-4 font-medium border border-gray-100 rounded-lg max-h-12 md:p-0 md:flex-row md:space-x-1 rtl:space-x-reverse md:mt-0">
+            <li class="border-2 border-black rounded-sm">
+              <button disabled id="stopBtn" class="block px-3 py-4 text-gray-900 rounded md:border-0 md:p-0 disabled:bg-gray-300 disabled:rounded-none">
+                <svg class="text-gray-800 w-9 h-9" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7Z"/>
+                  </svg>
+              </button>
+            </li>
+            <li class="border-2 border-black rounded-sm">
+                <button disabled id="playBtn" class="block px-3 py-4 text-gray-900 rounded md:border-0 md:p-0 disabled:bg-gray-300 disabled:rounded-none">
+                    <svg class="text-gray-800 w-9 h-9" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8l8-6a1 1 0 0 0 0-1.6l-8-6Z" clip-rule="evenodd"/>
+                      </svg>                      
+                </button>
+            </li>
+            <li class="inline-flex items-center pr-4">
+                
+                <input disabled placeholder="120" id="bpmInput" class="h-10 px-3 py-2 text-black border-2 border-black rounded-sm w-14 focus:border-primary-500 focus:ring-primary-500 disabled:bg-gray-300 disabled:rounded-none" value="120">
+                <lable for="bpmInput" class="pl-1 text-xl font-semibold text-black">BPM</span>
+            </li>
+            <li class="inline-flex items-center">
+                <label for="patternIdInput" class="hidden text-sm font-medium leading-6 text-gray-900" aria-label="Sequence selector">SEQUENCE</label>
+                <select disabled name="patternIdInput" id="patternIdInput" class="px-3 py-2 text-black border-2 border-black rounded-sm form-select focus:border-primary-500 focus:ring-primary-500">
+                    <option value="1">DnB 2Step</option>
+                    <option value="2">DnB Steppa</option>
+                    <option value="3">FourOnTheFloor</option>
+                </select>
+            </li>
+            <li class="items-center">
+                <label for="stepsInput" class="hidden text-sm font-medium leading-6 text-gray-900" aria-label="Sequence selector">SEQUENCE</label>
+                <select name="stepsInput" id="stepsInput" class="px-3 py-2 text-black border-2 border-black rounded-sm form-select focus:border-primary-500 focus:ring-primary-500">
+                    <option value="4">4</option>
+                    <option value="8">8</option>
+                    <option value="16" selected>16</option>
+                    <option value="32">32</option>
+                </select>
+            </li>
+
+          </ul>
+        </form> 
+        </div>
+      </div>
+
+    {{-- @!component('projects/808/partials/sequencerTable.edge') --}}
+    @!component('projects/808/partials/sequencerTableTest.edge')
+
+
+
+    
+</section>
