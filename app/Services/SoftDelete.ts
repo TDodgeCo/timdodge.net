@@ -3,7 +3,6 @@ import { DateTime } from 'luxon';
 
 // Optional null check query
 export const softDeleteQuery = (query: ModelQueryBuilderContract<typeof BaseModel>) => {
-      console.log('softDeleteQuery hide deleted')
     query.whereNull('deleted_at')  
 }
 

@@ -51,16 +51,15 @@
           {{-- <img src="{{asset('assets/images/clouds/clouds-3.svg')}}" class="absolute leftToRight mix-blend-multiply"
             alt=""> --}}
           <h1
-            class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
-            I'm Tim IRL and this is me on the net. </h1>
-          <p class="max-w-2xl mb-6 font-light text-gray-500 text-md lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            I made this website using advanced technologies. <strong class="font-semibold">All of them.</strong>
+            class="max-w-2xl pt-4 mb-4 text-4xl font-extrabold leading-none tracking-tight lg:pt-16 md:text-5xl xl:text-6xl dark:text-primary-500">
+            Hello. <span class="dark:text-white">I'm Tim.</span> </h1>
+          <p class="max-w-2xl mb-6 font-semibold text-gray-500 text-md lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+            Welcome to my personal app gallery and portfolio site.
           </p>
 
-          <p class="max-w-2xl mb-6 font-light text-gray-500 text-md lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            It's my personal labratory. I have questions that wouldn't be appropriate to answer in a professional
-            setting. Mostly just creative analytics and risky UX/UI choices.
-            <a href="#" title=""
+          <p class="max-w-2xl mb-6 text-gray-500 text-md lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+            This site is run on a custom CMS that I built from the ground up, the goal being to create a platform that I can use to rapidly experiment with tech/code that I find interesting and then subsequently exhibit the results. 
+            {{-- <a href="#" title=""
               class="inline-flex items-center text-base font-normal shrink-0 text-primary-600 hover:underline dark:text-primary-500">
               Explore experiments.
               <svg aria-hidden="true" class="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
@@ -69,53 +68,35 @@
                   d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                   clip-rule="evenodd" />
               </svg>
-            </a>
+            </a> --}}
           </p>
-          <p class="max-w-2xl mb-6 font-light text-gray-500 text-md lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            In addition, it's a place for me to catalogue my experiences and share whatever I'm currently excited about.
+          <p class="max-w-2xl mb-6 text-gray-500 text-md lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+            If you've found your way here, you're likely a friend, family member, or a potential employer. If you fall under the latter category, I'm currently seeking a full-time position as a software developer. You'll find well documented examples of my personal projects throughout this site.
+          </p>
+          <p class="max-w-2xl mb-6 text-gray-500 text-md lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+           Feel free to explore and reach out to me if you have any questions or would like to chat.
           </p>
           {{-- <p class="max-w-2xl mb-6 font-light text-gray-500 text-md lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
              One man's playground is another man's zoo. The purpose is to be observed, and to observe the observer. 
           </p> --}}
-          {{-- @!component('partials/components/emailCollectionForm', {
-          name: 'heroEmail',
-          text: 'Put the email in the box',
-          placeholder: 'If you can read this, you are doing it wrong',
-          action: '#',
-          method: 'POST',
-          buttonText: 'CLICK THIS'
-          }) --}}
+          
         </div>
-        <div class="hidden h-full place-self-end lg:mt-12 lg:col-span-6 xxl:col-span-5 lg:flex">
-          <img class="object-contain object-bottom h-full"
-            src="{{asset('assets/images/branding/skullphones/dove-skull-2.svg')}}"
-            alt="Not actually Tim on the net. It's a skull wearing headphones.">
-        </div>
+        {{-- <div class="hidden place-self-center lg:mt-12 lg:col-span-6 xxl:col-span-5 lg:flex">
+          @!component('partials/components/emailCollectionForm', {
+            name: 'heroEmail',
+            text: 'Put the email in the box',
+            placeholder: 'If you can read this, you are doing it wrong',
+            action: '#',
+            method: 'POST',
+            buttonText: 'CLICK THIS'
+            })
+        </div> --}}
       </div>
     </section>
 
-
-    {{-- <div class="p-4 bg-gradient-to-r from-cyan-950 via-slate-950 to-purple-950"></div> --}}
-    {{-- <section class="bg-white dark:bg-gray-900">
-      <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
-        <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 lg:text-5xl dark:text-white">Let's get
-          weird.</h2>
-
-      </div>
-    </section> --}}
-
-    {{-- Facts --}}
-    {{-- @if(true)
-    <section class="py-20 bg-gradient-to-br from-slate-950 to-primary-700 isolate">
-      <div class="max-w-3xl mx-auto">
-        @!component('partials/components/factBlockQuote', {body: fact.body})
-      </div>
-
-    </section>
-    @endif --}}
 
     <!-- Topics-->
-    <div class="p-12 bg-white bg-bottom dark:bg-gray-900 isolate bg-wave-1-2 bg-blend-multiply">
+    <div class="p-12 bg-white bg-bottom dark:bg-primary-900 isolate bg-wave-1-2 bg-blend-multiply">
       <section class="antialiased bg-white shadow-2xl bg-clip-content dark:bg-gray-950/90 rounded-2xl shadow-gray-950">
 
         <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
@@ -127,7 +108,7 @@
                 class="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl xl:text-5xl dark:text-white">
                 My Interests
               </h2>
-              <p class="mt-6 text-base font-normal text-gray-500 sm:text-xl dark:text-gray-100">
+              <p class="mt-6 text-base font-normal text-gray-500 sm:text-xl dark:text-primary-500">
                 The primary topics covered around these parts
               </p>
             </div>
@@ -136,7 +117,7 @@
 
           <div class="mt-12 space-y-16 sm:mt-16">
             <div
-              class="w-full p-6 bg-white bg-bottom dark:bg-gray-900 rounded-xl bg-denver-1 bg-clip-padding bg-blend-multiply">
+              class="w-full p-6 bg-white bg-bottom border-b-2 border-gray-800 dark:bg-gray-900 rounded-xl bg-denver-1 bg-clip-padding bg-blend-multiply">
 
               @!component('staticPages/home/homePartials/interestCard', {
               orientation: 'lg:order-2',
@@ -152,7 +133,7 @@
             </div>
 
             <div
-              class="w-full p-6 bg-white bg-bottom dark:bg-gray-900 rounded-xl bg-denver-2 bg-clip-padding bg-blend-multiply">
+              class="w-full p-6 bg-white bg-bottom border-b-2 border-gray-800 dark:bg-gray-900 rounded-xl bg-denver-2 bg-clip-padding bg-blend-multiply">
               @!component('staticPages/home/homePartials/interestCard', {
               orientation: '',
               image: asset('assets/images/nightmares/nightmare-2.png'),
@@ -165,7 +146,7 @@
               })
             </div>
             <div
-              class="w-full p-6 bg-white bg-bottom dark:bg-gray-900 rounded-xl bg-denver-3 bg-clip-padding bg-blend-multiply">
+              class="w-full p-6 bg-white bg-bottom border-b-2 border-gray-800 dark:bg-gray-900 rounded-xl bg-denver-3 bg-clip-padding bg-blend-multiply">
               @!component('staticPages/home/homePartials/interestCard', {
               orientation: 'lg:order-2',
               image: asset('assets/images/nightmares/nightmare-3.png'),
@@ -179,7 +160,7 @@
               })
             </div>
             <div
-              class="w-full p-6 bg-white bg-bottom dark:bg-gray-900 rounded-xl bg-denver-5 bg-clip-padding bg-blend-multiply">
+              class="w-full p-6 bg-white bg-bottom border-b-2 border-gray-800 dark:bg-gray-900 rounded-xl bg-denver-5 bg-clip-padding bg-blend-multiply">
               @!component('staticPages/home/homePartials/interestCard', {
               orientation: '',
               image: asset('assets/images/nightmares/nightmare-1.png'),

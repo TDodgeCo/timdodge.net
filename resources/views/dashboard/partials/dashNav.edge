@@ -9,19 +9,19 @@
                   <img class="w-10 h-10" src="{{ asset('assets/images/logo.svg')}}" alt="TimOnThe.net Logo">
                 </a>
               </div>
-              <div class="hidden md:block">
+              <div x-data="{ navTab: 'dashboard', get href() { return window.location.href } }" x-init="navTab = window.navTab(href)"class="hidden md:block">
                 <div class="flex items-baseline ml-10 space-x-4">
                   <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                  <a href="{{route('dashboard')}}"
-                    class="px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-md"
+                  <a :class="{ 'font-bold bg-gray-900 rounded-md': navTab === 'dashboard' }" href="{{route('dashboard')}}"
+                    class="px-3 py-2 text-sm font-medium text-white"
                     aria-current="page">Dashboard</a>
-                  <a href="{{route('dashboard.posts')}}"
+                  <a :class="{ 'font-bold bg-gray-900 rounded-md': navTab === 'posts' }" href="{{route('dashboard.posts')}}"
                     class="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Posts</a>
-                  <a href="#"
+                  <a :class="{ 'font-bold bg-gray-900 rounded-md': navTab === 'projects' }" href="#"
                     class="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Projects</a>
-                  <a href="#"
+                  <a :class="{ 'font-bold bg-gray-900 rounded-md': navTab === 'calendar' }" href="#"
                     class="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Calendar</a>
-                  <a href="#"
+                  <a :class="{ 'font-bold bg-gray-900 rounded-md': navTab === 'reports' }" href="#"
                     class="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Reports</a>
                 </div>
               </div>

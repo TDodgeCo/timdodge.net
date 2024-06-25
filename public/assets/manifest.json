@@ -323,5 +323,9 @@
   "assets/images/clouds/group-2/clouds-single_4.svg": "http://localhost:8080/assets/images/clouds/group-2/clouds-single_4.f7618a37.svg",
   "assets/js/projects/js808/SequencerModel.ts": "http://localhost:8080/assets/js/projects/js808/SequencerModel.93ec4320.ts",
   "assets/js/projects/audioContext.ts": "http://localhost:8080/assets/js/projects/audioContext.d34d5aba.ts",
-  "assets/scripts/textEditor.js": "http://localhost:8080/assets/scripts/textEditor.31d6cfe0.js"
+  "assets/scripts/textEditor.js": "http://localhost:8080/assets/scripts/textEditor.31d6cfe0.js",
+  "assets/images/projects/js-808/tr808.png.tmp$$": "http://localhost:8080/assets/images/projects/js-808/tr808.png.42ecf833.tmp$$",
+  "assets/images/projects/js-808/tr808.svg": "http://localhost:8080/assets/images/projects/js-808/tr808.95008478.svg",
+  "assets/images/projects/js-808/tr808.png": "http://localhost:8080/assets/images/projects/js-808/tr808.28479b80.png",
+  "assets/scripts/markdoc.js": "http://localhost:8080/assets/scripts/markdoc.31d6cfe0.js"
 }

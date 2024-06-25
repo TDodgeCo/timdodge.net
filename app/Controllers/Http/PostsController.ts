@@ -1,5 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { marked } from 'marked'
+// import { marked } from 'marked'
+import Markdoc from '@markdoc/markdoc'
 import Post from 'App/Models/Post'
 // import { TopicsDesc } from 'App/Enums/Topics'
 // import Tag from 'App/Models/Tag'
@@ -16,7 +17,12 @@ export default class PostsController {
   public async store({ request, response, bouncer, auth }: HttpContextContract) {
     await bouncer.with('PostPolicy').authorize('create')
     const req = request.except(['_csrf'])
-    const html = marked.parse(req.body)
+
+    const ast = Markdoc.parse(req.body)
+    const transformed = Markdoc.transform(ast)
+    const html = Markdoc.renderers.html(transformed)
+
+    // const html = marked.parse(req.body) // this is from the old markdown parser. holding in case this doesn't work
 
     const post = await Post.firstOrCreate({
       title: req.title,
@@ -47,13 +53,22 @@ export default class PostsController {
         .preload('topic')
         .firstOrFail()
       
+      console.log('no request param topic', post?.topic.name.toLowerCase())
+      
       return response.redirect().toRoute('posts.topic.show', { topic: post?.topic.name.toLowerCase(), slug: post?.slug })
     }
 
     const post = await Post.findBy('slug', request.param('slug'))
+    // console.log(`post.bodyBlocks`, JSON.parse(post?.projectBlocks[0]))
+    post.projectBlocks = JSON.parse(post?.projectBlocks[0])
 
+    let projects: object[] = []
+    
+    for (let i = 0; i < post.projectBlocks.length; i++) {
+      projects.push(JSON.parse(post.projectBlocks[i]))
+    }
    
-    return view.render('posts/post', { post })
+    return view.render('posts/post', { post, projects })
     
 
     
@@ -63,5 +78,6 @@ export default class PostsController {
 
   public async update({}: HttpContextContract) {}
 
-  public async destroy({}: HttpContextContract) {}
+  public async destroy({ }: HttpContextContract) { }
+  
 }
